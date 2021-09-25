@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import AddBookForm from "./components/AddBookForm";
+import BookList from "./components/BookList";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar";
+
+import {addBooksApi, deleteBooksApi, getBooksApi, saveBooksApi, searchBookApi} from "./api/apiBooks";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from "./redux/books/actions";
+import Alert from "./components/Alert/Alert";
 
 function App() {
+     
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Header>
+        <h1>Header</h1>
+      </Header>
+      <Alert />
+      <SearchBar  />
+      <BookList  />
+      <AddBookForm />
+
+    </>
   );
 }
 
